@@ -1,6 +1,6 @@
-# RLE-FED demo
+#RLE-FED demo
 
-## Installation
+##Installation
 Run in the terminal
 
 ```sh
@@ -10,7 +10,7 @@ pip install -r requirements.txt
 ipython kernel install --user --name rle_fed
 ```
 
-## Example
+##Example
 Run python notebook `RLE-FED Algorithm.ipynb`
 
 ```sh
