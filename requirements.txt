@@ -1,5 +1,7 @@
 bitarray==2.9.2
 openfermionpyscf==0.5
 pyscf==2.6.2
-qiskit==1.2.0
+qiskit==1.1.0
+qiskit-aer==0.14.2
 scipy==1.14.0
+jupyterlab==4.2.4
