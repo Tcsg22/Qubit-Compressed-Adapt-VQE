@@ -300,69 +300,7 @@ def RDMs(MF, naos, freeze, function, threshold = 10**-2):
         GROUP_INFO.append(group_info)
               
     return Base, GROUP_INFO
-
-'this is a O(N^2) sort, and could possibly be more efficient.'
-def RDM_grouper(indices):
-    '''RDM_grouper: Input the RDM indices, and this function
-    groups the RDM together. Convention is [1,1,0,0] for 
-    the creation and annhiliation operators. This function still have some bugs.
-
-    Input:
-    ------
-    indices: a list of indices
-
-    Output:
-    -------
-    group: measurement group of rdm
-    '''
-
-    'max three for four distinctive indices'
-    four = []
-    two  = []
-    one = []
-    for i in indices:
-        stuff = set(i)
-        if  len(stuff) == 4:
-            four.append([i,list(set(i))])
-        elif len(i) == 4 and len(stuff) == 2 or len(stuff) == 1:
-            one.append(i)
-
-        #elif stuff == 2 or stuff == 3:
-        else:
-            if len(stuff) == 3:
-                seti = [m for m in stuff if i.count(m) == 1]
-            else:
-                seti = list(set(i))
-            two.append([i, seti])
-
-    'four'
     
-    'copy could be useless.'
-    groups = []
-    
-    scan = four+two
-    while len(scan) !=0:
-
-        'the second element of the 1st four_s element.'
-        dist = scan[0][1]
-        'if eliminate from behind, no need to relabel.'
-        
-        elim = scan[::-1]
-        group = []
-        for index, item in enumerate(scan):
-            if item[1] == dist:
-                group.append(item[0])
-                elim.pop(len(scan)-1-index)
-        
-        'update the scan after cutting'
-        scan = elim[::-1]
-        groups.append(group)    
-
-    'one'
-    groups.append(one)
-        
-    return groups
-
 def encoder(orb, e, Q, hardcore = 0):
     '''Compute the compression matrix with the molecule information.
 
